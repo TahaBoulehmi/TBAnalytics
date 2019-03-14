@@ -5,7 +5,7 @@ import './App.css';
 import View from './components/View.js';
 
 //importing context files
-import DataContext from './context/Context.js';
+import DataContext from 'context/Context.js';
 import CONFIG from './config/Config.js';
 
 class App extends React.Component {
