@@ -10,17 +10,22 @@ const delays = 80,
 durations = 500;
 
 const socialNetWorkSources = function (data) {
+  let fetchedLabels = [], fetchedSeries = [];
+  Object.values(data.TopSocial).forEach(function(obj) {
+    fetchedLabels.push(obj.Name);
+    fetchedSeries.push(obj.Value * 100);
+  });
   return {
     data: {
-      labels: ["12am", "3pm", "6pm", "9pm", "12pm", "3am", "6am", "9am"],
-      series: [[230, 750, 450, 300, 280, 240, 200, 190]]
+      labels: fetchedLabels,
+      series: [fetchedSeries]
     },
     options: {
       lineSmooth: Chartist.Interpolation.cardinal({
         tension: 0
       }),
       low: 0,
-      high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      high: 100, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
       chartPadding: {
         top: 0,
         right: 0,
