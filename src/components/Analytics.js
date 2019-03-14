@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Overview from './analytics/Overview';
+import EstimatedMonthlyVisits from './analytics/EstimatedMonthlyVisits';
+import TrafficSources from './analytics/TrafficSources';
 
-function Analytics() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
+function Analytics(props) {
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <Overview />
+      <EstimatedMonthlyVisits />
+      <TrafficSources />
     </div>
   );
 }
