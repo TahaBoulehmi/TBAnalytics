@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form  as BootstrapForm} from 'react-bootstrap';
-import { Button, Alert } from 'react-bootstrap';
+import { Button, Alert, Container, Row, Col } from 'react-bootstrap';
 
 import CONFIG from './../config/Config.js'; //contains the api url
 import DataContext from './../context/Context.js';
@@ -35,32 +35,48 @@ function Form() {
   }
 
   if (isLoading) {
-    return <p>Loading ...</p>;
+    return (
+      <Container>
+        <Row>
+          <Col></Col>
+          <Col><p>Loading ...</p></Col>
+          <Col></Col>
+        </Row>
+      </Container>
+    );
   }
 
   return (
     <DataContext.Consumer>
       {({data, updateData}) => (
-        <BootstrapForm>
-          <BootstrapForm.Group controlId="formBasicUrl">
-            <BootstrapForm.Label>Website Url</BootstrapForm.Label>
-            <BootstrapForm.Control value={websiteUrl} onChange={e => setWebsiteUrl(e.target.value)} type="url" placeholder="Enter website url" />
-            <BootstrapForm.Text className="text-muted">
-              We'll never save your entered inputs anywhere.
-            </BootstrapForm.Text>
-          </BootstrapForm.Group>
-          <Button onClick={(e) => {e.preventDefault(); fetchData(websiteUrl, updateData)}} variant="primary" type="submit">
-            Submit
-          </Button>
-          <p>{data.SiteName}</p>
-          {(websiteUrl !== '' && !foundData && formSubmitted) ?
-          <Alert dismissible variant="danger">
-            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-            <p>
-              Data not found for this website url!
-            </p>
-          </Alert> : null}
-        </BootstrapForm>
+        <Container>
+          <Row>
+            <Col></Col>
+            <Col>
+              <BootstrapForm>
+                <BootstrapForm.Group controlId="formBasicUrl">
+                  <BootstrapForm.Label>Website Url</BootstrapForm.Label>
+                  <BootstrapForm.Control value={websiteUrl} onChange={e => setWebsiteUrl(e.target.value)} type="url" placeholder="Enter website url" />
+                  <BootstrapForm.Text className="text-muted">
+                    We'll never save your entered inputs anywhere.
+                  </BootstrapForm.Text>
+                </BootstrapForm.Group>
+                <Button onClick={(e) => {e.preventDefault(); fetchData(websiteUrl, updateData)}} variant="primary" type="submit">
+                  Submit
+                </Button>
+                <p>{data.SiteName}</p>
+                {(websiteUrl !== '' && !foundData && formSubmitted) ?
+                <Alert dismissible variant="danger">
+                  <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+                  <p>
+                    Data not found for this website url!
+                  </p>
+                </Alert> : null}
+              </BootstrapForm>
+            </Col>
+            <Col></Col>
+          </Row>
+        </Container>
       )}
   </DataContext.Consumer>
   );
