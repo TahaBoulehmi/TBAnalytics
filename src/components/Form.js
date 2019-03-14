@@ -2,17 +2,37 @@ import React, { useState } from 'react';
 import { Form  as BootstrapForm} from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Alert } from 'react-bootstrap';
-import config from './../config/config.js'; //contains the api url
+import CONFIG from './../config/config.js'; //contains the api url
+const axios = require('axios');
 
 
 function Form() {
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [foundData, setFoundData] = useState(false);
 
   function fetchData(websiteUrl) { //Fetching the data
-    setFormSubmitted(true);
+    setIsLoading(true);
+    setFormSubmitted(false);
 
+    axios.get(CONFIG.API + websiteUrl)
+      .then(response => {
+        console.log("resp");
+        console.log(response);
+        setFoundData(true);
+        setFormSubmitted(true);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        setFoundData(false);
+        setFormSubmitted(true);
+        setIsLoading(false);
+      });
+  }
+
+  if (isLoading) {
+    return <p>Loading ...</p>;
   }
 
   return (

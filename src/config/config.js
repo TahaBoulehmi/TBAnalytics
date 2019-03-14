@@ -1,1 +1,1 @@
-export default {api: "https://tbanalytics.btaha.com"}
+export default {API: "http://localhost:9230/"}
