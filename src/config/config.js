@@ -1,5 +1,5 @@
 export default {
-  API: "http://93.90.203.168:9230/",
+  API: "https://api.tbanalytics.btaha.com/",
   CONTEXT: {
     data: {},
     updateData: (newData) => {
