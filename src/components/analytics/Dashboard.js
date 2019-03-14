@@ -13,23 +13,15 @@ import LocalOffer from "@material-ui/icons/LocalOffer";
 import Update from "@material-ui/icons/Update";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
 // core components
 import GridItem from "components/design/Grid/GridItem.jsx";
 import GridContainer from "components/design/Grid/GridContainer.jsx";
-import Table from "components/design/Table/Table.jsx";
-import Tasks from "components/design/Tasks/Tasks.jsx";
-import CustomTabs from "components/design/CustomTabs/CustomTabs.jsx";
 import Danger from "components/design/Typography/Danger.jsx";
 import Card from "components/design/Card/Card.jsx";
 import CardHeader from "components/design/Card/CardHeader.jsx";
 import CardIcon from "components/design/Card/CardIcon.jsx";
 import CardBody from "components/design/Card/CardBody.jsx";
 import CardFooter from "components/design/Card/CardFooter.jsx";
-
-import { bugs, website, server } from "components/design/variables/general.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
