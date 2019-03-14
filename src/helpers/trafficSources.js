@@ -5,24 +5,25 @@ const delays2 = 80,
 durations2 = 500;
 
 const trafficSources = function (data) {
+  let fetchedLabels = [], fetchedSeries = [];
+  Object.keys(data.TrafficSources).forEach(function(key) {
+    fetchedLabels.push(key);
+  });
+  Object.values(data.TrafficSources).forEach(function(value) {
+    fetchedSeries.push(value * 100);
+  });
+
   return {
     data: {
-      labels: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "Mai",
-        "Jun",
-      ],
-      series: [[542, 443, 320, 780, 553, 453000]]
+      labels: fetchedLabels,
+      series: [fetchedSeries]
     },
     options: {
       axisX: {
         showGrid: false
       },
       low: 0,
-      high: 1000,
+      high: 100,
       chartPadding: {
         top: 0,
         right: 5,
