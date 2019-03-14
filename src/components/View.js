@@ -2,16 +2,18 @@ import React from 'react';
 
 //importing components
 import Form from './Form.js';
-import Analytics from './Form.js';
+import Analytics from './Analytics.js';
+
+import DataContext from './../context/Context.js';
 
 function View() {
-  // Assign a contextType to read the current theme context.
-  // React will find the closest theme Provider above and use its value.
-  static contextType = DataContext;
-
-  render() {
-    return this.context.SiteName? <Analytics /> : <Form /> ;
-  }
+  return (
+    <DataContext.Consumer>
+      {({data, updateData}) => (
+        data.SiteName? <Analytics /> : <Form />
+      )}
+    </DataContext.Consumer>
+  );
 }
 
 export default View;
