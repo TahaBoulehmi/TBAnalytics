@@ -11,7 +11,6 @@ import Warning from "@material-ui/icons/Warning";
 import DateRange from "@material-ui/icons/DateRange";
 import LocalOffer from "@material-ui/icons/LocalOffer";
 import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Accessibility from "@material-ui/icons/Accessibility";
 import BugReport from "@material-ui/icons/BugReport";
@@ -32,13 +31,11 @@ import CardFooter from "components/design/Card/CardFooter.jsx";
 
 import { bugs, website, server } from "components/design/variables/general.jsx";
 
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from "components/design/variables/charts.jsx";
-
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
+
+import trafficSources from "helpers/trafficSources.js";
+import monthlyVisits from "helpers/monthlyVisits.js";
+import socialNetWorkSources from "helpers/socialNetWorkSources.js";
 
 class Dashboard extends React.Component {
   state = {
@@ -135,24 +132,18 @@ class Dashboard extends React.Component {
               <CardHeader color="success">
                 <ChartistGraph
                   className="ct-chart"
-                  data={dailySalesChart.data}
+                  data={monthlyVisits(this.props.data).data}
                   type="Line"
-                  options={dailySalesChart.options}
-                  listener={dailySalesChart.animation}
+                  options={monthlyVisits(this.props.data).options}
+                  listener={monthlyVisits(this.props.data).animation}
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Daily Sales</h4>
-                <p className={classes.cardCategory}>
-                  <span className={classes.successText}>
-                    <ArrowUpward className={classes.upArrowCardCategory} /> 55%
-                  </span>{" "}
-                  increase in today sales.
-                </p>
+                <h4 className={classes.cardTitle}>Monthly Visits</h4>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
-                  <AccessTime /> updated 4 minutes ago
+                  <AccessTime /> Last 6 months
                 </div>
               </CardFooter>
             </Card>
@@ -162,22 +153,19 @@ class Dashboard extends React.Component {
               <CardHeader color="warning">
                 <ChartistGraph
                   className="ct-chart"
-                  data={emailsSubscriptionChart.data}
+                  data={trafficSources(this.props.data).data}
                   type="Bar"
-                  options={emailsSubscriptionChart.options}
-                  responsiveOptions={emailsSubscriptionChart.responsiveOptions}
-                  listener={emailsSubscriptionChart.animation}
+                  options={trafficSources(this.props.data).options}
+                  responsiveOptions={trafficSources(this.props.data).responsiveOptions}
+                  listener={trafficSources(this.props.data).animation}
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Email Subscriptions</h4>
-                <p className={classes.cardCategory}>
-                  Last Campaign Performance
-                </p>
+                <h4 className={classes.cardTitle}>Traffic Sources</h4>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
-                  <AccessTime /> campaign sent 2 days ago
+                  <AccessTime /> Last 3 months
                 </div>
               </CardFooter>
             </Card>
@@ -187,21 +175,18 @@ class Dashboard extends React.Component {
               <CardHeader color="danger">
                 <ChartistGraph
                   className="ct-chart"
-                  data={completedTasksChart.data}
+                  data={socialNetWorkSources(this.props.data).data}
                   type="Line"
-                  options={completedTasksChart.options}
-                  listener={completedTasksChart.animation}
+                  options={socialNetWorkSources(this.props.data).options}
+                  listener={socialNetWorkSources(this.props.data).animation}
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Completed Tasks</h4>
-                <p className={classes.cardCategory}>
-                  Last Campaign Performance
-                </p>
+                <h4 className={classes.cardTitle}>Social Network Sources</h4>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
-                  <AccessTime /> campaign sent 2 days ago
+                  <AccessTime /> updated 2 days ago
                 </div>
               </CardFooter>
             </Card>
