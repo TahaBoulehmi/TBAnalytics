@@ -23,7 +23,6 @@ function Form() {
         setFoundData(true);
         setFormSubmitted(true);
         setIsLoading(false);
-        console.log(response.data);
         updateData(response.data); //updating the data using updateData function from the context
       })
       .catch(error => {
