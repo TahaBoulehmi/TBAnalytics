@@ -7,10 +7,10 @@ import Analytics from './components/Form.js';
 
 //importing config files
 import data from './context/context.js';
-import config from './config/config.js';
 
+
+//Creating  a global context
 const DataContext = React.createContext(data);
-const ConfigContext = React.createContext(config);
 
 class App extends React.Component {
   constructor(props) {
@@ -23,11 +23,9 @@ class App extends React.Component {
     const output = this.state.SiteName? <Analytics /> : <Form /> ;
     return (
       <DataContext.Provider value={data}>
-        <ConfigContext.Provider value={config}>
           <p>
             {output}
           </p>
-        </ConfigContext.Provider>
       </DataContext.Provider>
     );
   }

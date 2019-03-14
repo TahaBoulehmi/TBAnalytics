@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
+import { Form  as BootstrapForm} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import config from './../config/config.js'; //contains the api url
+
 
 function Form() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
+  const [websiteUrl, setWebsiteUrl] = useState('');
+
+  function fetchData(websiteUrl) { //Fetching the data
+
+  }
 
   return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
+    <BootstrapForm>
+      <BootstrapForm.Group controlId="formBasicUrl">
+        <BootstrapForm.Label>Website Url</BootstrapForm.Label>
+        <BootstrapForm.Control value={websiteUrl} onChange={e => setWebsiteUrl(e.target.value)} type="url" placeholder="Enter website url" />
+        <BootstrapForm.Text className="text-muted">
+          We'll never save your entered inputs anywhere.
+        </BootstrapForm.Text>
+      </BootstrapForm.Group>
+      <Button onClick={() => fetchData(websiteUrl)} variant="primary" type="submit">
+        Submit
+      </Button>
+    </BootstrapForm>
   );
 }
 
