@@ -10,7 +10,7 @@ function View() {
   return (
     <DataContext.Consumer>
       {({data, updateData}) => (
-        data.SiteName? <Analytics /> : <Form />
+        data.SiteName? <Analytics data={data} /> : <Form />
       )}
     </DataContext.Consumer>
   );
