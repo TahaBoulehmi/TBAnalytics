@@ -132,6 +132,9 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardBody>
                 <h4 className={classes.cardTitle}>Monthly Visits</h4>
+                <p className={classes.cardCategory}>
+                  total visits
+                </p>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
@@ -154,6 +157,9 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardBody>
                 <h4 className={classes.cardTitle}>Traffic Sources</h4>
+                <p className={classes.cardCategory}>
+                  in percentage %
+                </p>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>
@@ -175,6 +181,9 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardBody>
                 <h4 className={classes.cardTitle}>Social Network Sources</h4>
+                <p className={classes.cardCategory}>
+                  in percentage %
+                </p>
               </CardBody>
               <CardFooter chart>
                 <div className={classes.stats}>

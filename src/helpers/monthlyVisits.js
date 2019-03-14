@@ -10,22 +10,35 @@ const delays = 80,
 durations = 500;
 
 const monthlyVisits = function (data) {
+  const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+  let fetchedLabels = [], fetchedSeries = [];
+  Object.keys(data.EstimatedMonthlyVisits).forEach(function(key, index) {
+    let currentMonth = key.split("-");
+    fetchedLabels.push(months[parseInt(currentMonth[currentMonth.length - 2]) - 1]);
+  });
+  Object.values(data.EstimatedMonthlyVisits).forEach(function(value) {
+    fetchedSeries.push(value);
+  });
+  console.log(fetchedSeries);
+  const min = Math.min( ...fetchedSeries ),
+    max = Math.max( ...fetchedSeries );
   return {
     data: {
-      labels: ["M", "T", "W", "T", "F", "S", "S"],
-      series: [[12, 17, 7, 17, 23, 18, 38]]
+      labels: fetchedLabels,
+      series: [fetchedSeries]
     },
     options: {
       lineSmooth: Chartist.Interpolation.cardinal({
         tension: 0
       }),
-      low: 0,
-      high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+      low: min,
+      high: max + (max - min) * 0.1,
       chartPadding: {
         top: 0,
         right: 0,
         bottom: 0,
-        left: 0
+        left: String(max).length * 5
       }
     },
     // for animation
