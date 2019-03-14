@@ -62,9 +62,9 @@ class Dashboard extends React.Component {
                 <CardIcon color="warning">
                   <Icon>content_copy</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Used Space</p>
+                <p className={classes.cardCategory}>Global Rank</p>
                 <h3 className={classes.cardTitle}>
-                  49/50 <small>GB</small>
+                  {this.props.data.GlobalRank.Rank}
                 </h3>
               </CardHeader>
               <CardFooter stats>
@@ -72,9 +72,7 @@ class Dashboard extends React.Component {
                   <Danger>
                     <Warning />
                   </Danger>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    Get more space
-                  </a>
+                  Last 3 Months
                 </div>
               </CardFooter>
             </Card>
@@ -85,13 +83,13 @@ class Dashboard extends React.Component {
                 <CardIcon color="success">
                   <Store />
                 </CardIcon>
-                <p className={classes.cardCategory}>Revenue</p>
-                <h3 className={classes.cardTitle}>$34,245</h3>
+                <p className={classes.cardCategory}>Time Per Visit</p>
+                <h3 className={classes.cardTitle}>{(this.props.data.Engagments.TimeOnSite-(this.props.data.Engagments.TimeOnSite%=60))/60} Minutes</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
                   <DateRange />
-                  Last 24 Hours
+                  Per Visit in the Last 24 Hours
                 </div>
               </CardFooter>
             </Card>
@@ -102,13 +100,13 @@ class Dashboard extends React.Component {
                 <CardIcon color="danger">
                   <Icon>info_outline</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Fixed Issues</p>
-                <h3 className={classes.cardTitle}>75</h3>
+                <p className={classes.cardCategory}>Pages Per Visit</p>
+                <h3 className={classes.cardTitle}>{parseInt(this.props.data.Engagments.PagePerVisit)}</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
                   <LocalOffer />
-                  Tracked from Github
+                  Average in the last Week
                 </div>
               </CardFooter>
             </Card>
@@ -119,13 +117,13 @@ class Dashboard extends React.Component {
                 <CardIcon color="info">
                   <Accessibility />
                 </CardIcon>
-                <p className={classes.cardCategory}>Followers</p>
-                <h3 className={classes.cardTitle}>+245</h3>
+                <p className={classes.cardCategory}>Estimated Visits</p>
+                <h3 className={classes.cardTitle}>{parseInt(this.props.data.Engagments.Visits)}</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
                   <Update />
-                  Just Updated
+                  Per Month
                 </div>
               </CardFooter>
             </Card>
