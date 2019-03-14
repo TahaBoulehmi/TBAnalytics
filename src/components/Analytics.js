@@ -1,5 +1,5 @@
 import React from 'react';
-import Overview from './analytics/Overview';
+import Dashboard from './analytics/Dashboard';
 import EstimatedMonthlyVisits from './analytics/EstimatedMonthlyVisits';
 import TrafficSources from './analytics/TrafficSources';
 
@@ -7,7 +7,7 @@ function Analytics(props) {
 
   return (
     <div>
-      <Overview />
+      <Dashboard />
       <EstimatedMonthlyVisits />
       <TrafficSources />
     </div>
