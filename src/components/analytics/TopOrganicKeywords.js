@@ -1,13 +1,18 @@
-import React,  { useEffect } from 'react'
+import React,  { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './TopOrganicKeywords.css';
 import {Container, Row, Col} from 'react-bootstrap';
 import pieChart from 'helpers/pieChart';
 
 function TopOrganicKeywords(props) {
   // Similar to componentDidMount and componentDidUpdate:
+  const topOrganicKeywords = [];
+  Object.values(props.organicKeywords).forEach(function(obj) {
+    topOrganicKeywords.push(obj.Keyword);
+  });
   useEffect(() => {
     // Adding the D3Js graph using the browser's api
-    pieChart();
+    pieChart(topOrganicKeywords);
   });
 
   return (
@@ -23,5 +28,9 @@ function TopOrganicKeywords(props) {
     </Container>
   );
 }
+
+TopOrganicKeywords.propTypes = {
+  organicKeywords: PropTypes.object.isRequired,
+};
 
 export default TopOrganicKeywords;

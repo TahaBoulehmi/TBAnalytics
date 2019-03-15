@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 
-const pieChart = function() {
+const pieChart = function(organicKeywords) {
   var svg = d3.select("#TopOrganicKeywords")
   .append("svg")
   .append("g")
@@ -35,7 +35,7 @@ const pieChart = function() {
   var key = function(d){ return d.data.label; };
 
   var color = d3.scale.ordinal()
-  .domain(["Lorem ipsum", "dolor sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt"])
+  .domain(organicKeywords)
   .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
   function randomData (){

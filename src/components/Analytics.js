@@ -8,7 +8,7 @@ function Analytics(props) {
   return (
     <div>
       <Dashboard data={props.data} />
-      <TopOrganicKeywords />
+      <TopOrganicKeywords organicKeywords={props.data.TopOrganicKeywords} />
     </div>
   );
 }
