@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dashboard from './analytics/Dashboard';
-import TrafficSources from './analytics/TrafficSources';
+import TopOrganicKeywords from './analytics/TopOrganicKeywords.js';
 
 function Analytics(props) {
 
   return (
     <div>
       <Dashboard data={props.data} />
-      <TrafficSources />
+      <TopOrganicKeywords />
     </div>
   );
 }
