@@ -52,8 +52,8 @@ function Form() {
       {({data, updateData}) => (
         <Container>
           <Row>
-            <Col></Col>
-            <Col>
+            <Col lg={4} sm={1}></Col>
+            <Col lg={4}>
               <BootstrapForm>
                 <BootstrapForm.Group controlId="formBasicUrl">
                   <BootstrapForm.Label>Website Url</BootstrapForm.Label>
@@ -75,7 +75,7 @@ function Form() {
                 </Alert> : null}
               </BootstrapForm>
             </Col>
-            <Col></Col>
+            <Col lg={4} sm={1}></Col>
           </Row>
         </Container>
       )}
