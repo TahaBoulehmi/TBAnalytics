@@ -1,3 +1,5 @@
+import * as d3 from "d3";
+
 const pieChart = function() {
   var svg = d3.select("#TopOrganicKeywords")
   .append("svg")
