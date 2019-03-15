@@ -14,7 +14,7 @@ const extractHostname = function (url) {
   //find & remove "?"
   hostname = hostname.split('?')[0];
 
-  return hostname;
+  return hostname.replace("www.");
 }
 
 export default extractHostname;
