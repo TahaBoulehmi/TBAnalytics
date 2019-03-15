@@ -12,8 +12,8 @@ const pieChart = function(organicKeywords) {
   svg.append("g")
   .attr("class", "lines");
 
-  var width = 960,
-  height = 450,
+  var width = window.screen.width > 960 ? 960 : 320,
+  height = window.screen.width > 960 ? 450 : 150,
   radius = Math.min(width, height) / 2;
 
   var pie = d3.layout.pie()

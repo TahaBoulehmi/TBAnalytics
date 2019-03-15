@@ -30,7 +30,7 @@ function TopOrganicKeywords(props) {
 }
 
 TopOrganicKeywords.propTypes = {
-  organicKeywords: PropTypes.object.isRequired,
+  organicKeywords: PropTypes.array.isRequired,
 };
 
 export default TopOrganicKeywords;
