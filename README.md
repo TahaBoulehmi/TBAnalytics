@@ -1,5 +1,7 @@
 # TBAnalytics
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2bd26acf-4d09-44fb-9db2-c5224feba7bb/deploy-status)](https://app.netlify.com/sites/trusting-lewin-6f7c2b/deploys)
+
 Understand your market, your competitors and your customers
 
   - Reveal your competition's analytics & online strategy 
