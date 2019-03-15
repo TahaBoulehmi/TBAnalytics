@@ -14,7 +14,7 @@ function Footer() {
               <Nav.Link href="https://github.com/TahaBoulehmi/TBAnalytics" target="_blank">Contribute</Nav.Link>
               <Nav.Link href="https://www.btaha.com" target="_blank">Developed By Taha Boulehmi</Nav.Link>
             </Nav>
-            <a href="mailto:contact@btaha.com" target="_blank" inline>
+            <a href="mailto:contact@btaha.com" target="_blank" inline="true">
               <Button variant="outline-light">Contact</Button>
             </a>
           </Navbar>
