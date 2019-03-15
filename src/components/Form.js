@@ -5,6 +5,8 @@ import { Button, Alert, Container, Row, Col } from 'react-bootstrap';
 import CONFIG from './../config/Config.js'; //contains the api url
 import DataContext from './../context/Context.js';
 
+import extractHostName from 'helpers/extractHostName.js';
+
 const axios = require('axios');
 
 
@@ -60,7 +62,7 @@ function Form() {
                     We'll never save your entered inputs anywhere.
                   </BootstrapForm.Text>
                 </BootstrapForm.Group>
-                <Button onClick={(e) => {e.preventDefault(); fetchData(websiteUrl, updateData)}} variant="primary" type="submit">
+                <Button onClick={(e) => {e.preventDefault(); fetchData(extractHostName(websiteUrl), updateData)}} variant="primary" type="submit">
                   Submit
                 </Button>
                 <p>{data.SiteName}</p>
