@@ -20,7 +20,6 @@ const monthlyVisits = function (data) {
   Object.values(data.EstimatedMonthlyVisits).forEach(function(value) {
     fetchedSeries.push(value);
   });
-  console.log(fetchedSeries);
   const min = Math.min( ...fetchedSeries ),
     max = Math.max( ...fetchedSeries );
   return {
