@@ -76,7 +76,7 @@ $ npm run build
 Want to contribute? Great!
 
 TBAnalytics uses React + Webpack for fast developing.
-Make a change in your file and instantanously see your updates!
+Make a change in your file and instantaneously see your updates!
 Make a pull Request and I will check it and accept it.
 
 ### Todos
